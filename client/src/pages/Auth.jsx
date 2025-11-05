@@ -1,15 +1,20 @@
+import useStore from "@/stores/Store"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 
 function Auth(){
     const [username, setUsername] = useState("")
+    const {setUserName} = useStore()
+    const navigate = useNavigate()
 
     const handleEnter = async (e) => {
         e.preventDefault()
         //Send username
         //route to the typing page
-        console.log(username)
+        setUserName(username)
+        navigate("/game")
     }
 
 
